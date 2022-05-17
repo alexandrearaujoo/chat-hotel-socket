@@ -1,9 +1,6 @@
-import express from "express";
+import { server } from "./http";
+import './socket'
 
-const app = express();
-
-app.use(express.json());
-
-app.listen(3333, () => {
+server.listen(3333, () => {
   console.log("Server running");
 });
