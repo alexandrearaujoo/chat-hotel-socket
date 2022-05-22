@@ -1,14 +1,14 @@
 import express from "express";
 import http from "http";
-import path from 'path'
 import { Server } from "socket.io";
+import { config } from "dotenv";
+
+config();
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, '..', 'public')))
-
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, { cors: { origin: '*' } });
 
 app.use(express.json());
 
